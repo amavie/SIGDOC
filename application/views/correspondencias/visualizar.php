@@ -1,20 +1,40 @@
-﻿<div class="row-fluid" style="margin-top: 0">
-    <div class="span12">
-        <div class="widget-box">
-            <div class="widget-title">
-                <span class="icon">
-                    <i class="icon-tags"></i>
-                </span>
-                <h5>Correspondências</h5>
-                <div class="buttons">
-                    <a id="imprimir" title="Imprimir" class="btn btn-mini btn-inverse" href=""><i class="icon-print icon-white"></i> Imprimir</a>
+﻿
+<div class="wrapper">
+  <!-- Navbar -->
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1><small>Correspondências </small>Ostensivas</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Principal</a></li>
+              <li class="breadcrumb-item active"><small>Correspondências </small>Ostensivas</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="buttons">
+                    <a id="imprimir" title="Imprimir" class="btn btn-mini btn-inverse" href=""><i class="fas fa-print icon-white"></i> Imprimir</a>
                 </div>
-            </div>
-            <div class="widget-content" id="printCorrespondencia">
-                <div class="invoice-content">
-                    <div class="invoice-head">
-                    
-                        <table class="table" >
+              </div>
+              <!-- /.card-header -->
+
+              <div class="card-body">
+               <table class="table" id="printCorrespondencia">
                             <tbody>
 
                                 <?php if($emitente == null) {?>
@@ -53,15 +73,6 @@
                                 <?php } ?>
                             </tbody>
                         </table>
-   
-                        
-                    </div><hr/>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -107,68 +118,23 @@
 
 
     });
-
-
-
 </script>
 
-<script type="text/javascript">
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
 
- //Combinacao de direcoes, departamentos e reparticoes.
- $(document).ready(function() {                       
-                $("#direcoes").change(function() {
-                    $("#direcoes option:selected").each(function() {  
-                         direcoes = $('#direcoes').val();                    
-                        $.post("<?php echo base_url(); ?>index.php/correspondencias/dirDep", {
-                            direcoes : direcoes
-                        }, function(data) {
-                            
-                            $("#reparticoes").prop('disabled',true);
-                            $("#reparticoes").prop('value','');
-                            $("#departamentos").html(data);
-                            $("#departamentos").removeAttr("disabled");
-
-
-                        });
-                    });
-                });
-            });
-
- $(document).ready(function() {                       
-                $("#departamentos").change(function() {
-                    $("#departamentos option:selected").each(function() {  
-                         departamentos = $('#departamentos').val();                    
-                        $.post("<?php echo base_url(); ?>index.php/correspondencias/depRep", {
-                            departamentos : departamentos
-                        }, function(data) {
-                         
-                            $("#reparticoes").html(data);
-                            $("#reparticoes").removeAttr("disabled");
-
-                        });
-                    });
-                });
-            });
-
-             
+  <!-- /.control-sidebar -->
+</div>
 
 
-
- $("#novo").click(function(){
-     direcoes = $('#direcoes').val(); departamentos = $('#departamentos').val(); reparticoes =  $('#reparticoes').val(); 
-  var col="<tr><td><?php echo $result->refRec?></td><td>"+direcoes+"</td><td>"+departamentos+"</td><td>"+reparticoes+"</td><td><input type='submit' id='remove' class='btn btn-danger' value='-'/> </td></tr>"
-  +"<input type='hidden' name='direcoes[]' value="+direcoes+" />"
-+"<input type='hidden' name='departamentos[]' value="+departamentos+" />"
-+"<input type='hidden' name='reparticoes[]' value="+reparticoes+" />";
-    $(".lista").append($(col));
-    exit();
-});
-                            
-                 
-
-</script>
-
-
-        
-      
-       

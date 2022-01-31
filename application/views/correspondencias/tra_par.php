@@ -1,34 +1,46 @@
-<link rel="stylesheet" href="<?php echo base_url();?>assets/js/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.css" />
-<script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery-ui/js/jquery-ui-1.9.2.custom.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>assets/js/jquery.validate.js"></script>
-<link rel="stylesheet" href="<?php echo base_url();?>assets/js/jquery-ui/jquery-ui-1.11.1/jquery-ui.min.js" />
+
+<div class="wrapper">
+  <!-- Navbar -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <!-- <h1><small>Tramitar </small>Correspondências</h1> -->
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Principal</a></li>
+              <li class="breadcrumb-item active"><small>Tramitar </small>Correspondências</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
 
 
+          <div class="card">
+            <div class="card-header">
+                 <li class="active" id="tabDetalhes" style="list-style: none;" ><a href="#tab1" data-toggle="tab"><strong>Tramitar Correspondência</strong></a></li> 
+              </div>
+              <!-- /.card-header -->
 
+              <div class="card-body">
 
-<div class="row-fluid" style="margin-top:0">
-    <div class="span12">
-        <div class="widget-box">
-            <div class="widget-title">
-                <span class="icon">
-                    <i class="icon-tags"></i>
-                </span>
-                <h5>Tramitar</h5>
-            </div>
- 
-<div class="widget-content nopadding">
-<div class="span12" id="divProdutosServicos" style=" margin-left: 0">
-<ul class="nav nav-tabs">
- <li class="active" id="tabDetalhes"><a href="#tab1" data-toggle="tab"><strong>Correspondencia: <?php echo $result->numCorrespondencia ?></strong></a></li> </ul>
-
-<div class="tab-content">
-  <div class="tab-pane active" id="tab1">
-   <div class="span12" id="divEditarVenda">
-  <form action="" method="post" id="frm_submit">
+                 <form action="" method="post" id="frm_submit">
     <div class="col-md-12">
                 
 <div class="span6" style="padding: 1%; margin-left:0; margin-right: 0">
-                                   <h3 style="color: red;"><?php echo $result->numCorrespondencia ?></h3>                                                                         
+                                   <h3 style="color: red; font-weight:bold;"><?php echo $result->numCorrespondencia ?></h3>                                                                         
                                     </div>
                              
 <!-- Text input-->
@@ -79,22 +91,22 @@
 <div class="col-md-12">
 <hr>
 </div> </form>
- <div class="row">
- <!-- <div class="alert alert-dismissable alert-success" style="display: none; text-align: center;">
-  <button type="button" class="close" data-dismiss="alert">×</button>
-  <strong>Correspondência tramitado com sucesso!</strong>.</div> -->
-                
-<!-- <div class="alert alert-dismissable alert-danger"  style="display: none; text-align: center;">
- <button type="button" class="close" data-dismiss="alert">×</button>
- <strong>Erro na tramitação da correspondência!</strong>
-</div> --> </div> </div>
-           
-       
-                                
-</div></div></div>
-</div> </div>
-</div></div> </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
 
+  <!-- /.control-sidebar -->
+</div>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js"></script>

@@ -400,9 +400,10 @@ $this->load->view('tema/topo', $this->data);
         
         $this->data['ultimoId']=$this->Correspondencias_model->getId();
 
-
-        $this->data['view'] = 'correspondencias/editar';
-        $this->load->view('tema/topo',$this->data);
+        $this->data['menuPainel'] = 'Editar  Correspondência';
+        $this->load->view('tema/topo',  $this->data);
+        $this->load->view('correspondencias/editar');
+        $this->load->view('tema/rodape', $this->data);
     }
 
 
@@ -419,9 +420,11 @@ $this->load->view('tema/topo', $this->data);
         $this->data['result2'] = $this->Correspondencias_model->getById3($this->uri->segment(3));
         $this->data['emitente'] = $this->sigdoc_model->getEmitente();
         $this->data['direcoes'] = $this->Direcoes_model->getActive('direcoes','*');
-        
-        $this->data['view'] = 'correspondencias/visualizar';
-        $this->load->view('tema/topo', $this->data);
+
+        $this->data['menuPainel'] = 'Correspondências Ostensiva';
+        $this->load->view('tema/topo',  $this->data);
+        $this->load->view('correspondencias/visualizar');
+        $this->load->view('tema/rodape', $this->data);
        
     }
 
@@ -436,10 +439,12 @@ $this->load->view('tema/topo', $this->data);
        
         $this->data['result'] = $this->Correspondencias_model->getById2($this->uri->segment(3));
         $this->data['emitente'] = $this->sigdoc_model->getEmitente();
-         $this->data['direcoes'] = $this->Direcoes_model->getActive('direcoes','*');
-        
-        $this->data['view'] = 'correspondencias/tra_par';
-        $this->load->view('tema/topo', $this->data);
+        $this->data['direcoes'] = $this->Direcoes_model->getActive('direcoes','*');
+
+        $this->data['menuPainel'] = 'Tramite de Correspondência';
+        $this->load->view('tema/topo',  $this->data);
+        $this->load->view('correspondencias/tra_par');
+        $this->load->view('tema/rodape', $this->data);
        
     }
 
@@ -588,10 +593,11 @@ public function parecer(){
             }
         }
 
-        
-        
-        $this->data['view'] = 'correspondencias/recebida';
-        $this->load->view('tema/topo', $this->data);
+    
+        $this->data['menuPainel'] = 'Tramite de Correspondência';
+        $this->load->view('tema/topo',  $this->data);
+        $this->load->view('correspondencias/recebida');
+        $this->load->view('tema/rodape', $this->data);
 
 
     }
@@ -901,10 +907,10 @@ public function parecer(){
         $this->data['usuarios'] = $this->Usuarios_model->getActive('usuarios','*');         
         $this->data['tipodoc'] = $this->Tipo_doc_model->getActive('tipo_doc','*');
 
-       
-
-        $this->data['view'] = 'correspondencias/listaSigiloso';
-        $this->load->view('tema/topo',$this->data);
+        $this->data['menuPainel'] = 'Correspondências Recebida';
+        $this->load->view('tema/topo',  $this->data);
+        $this->load->view('correspondencias/listaSigiloso');
+        $this->load->view('tema/rodape', $this->data);
     }
 
     public function estadosDespacho(){
@@ -1299,9 +1305,11 @@ public function parecer(){
        $this->data['custom_error'] = '';
        $this->data['result'] = $this->Correspondencias_model->getById($this->uri->segment(3));
       
-       
-        $this->data['view'] = 'correspondencias/visualizar_inicial';
-        $this->load->view('tema/topo', $this->data);
+
+        $this->data['menuPainel'] = 'Detalhes da Correspondência';
+        $this->load->view('tema/topo',  $this->data);
+        $this->load->view('correspondencias/visualizar_inicial');
+        $this->load->view('tema/rodape', $this->data);
 
         
     }

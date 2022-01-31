@@ -9,12 +9,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1><small>Correspondências </small>Ostensivas</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">DataTables</li>
+              <li class="breadcrumb-item"><a href="#">Principal</a></li>
+              <li class="breadcrumb-item active"><small>Correspondências </small>Ostensivas</li>
             </ol>
           </div>
         </div>
@@ -28,20 +28,40 @@
           <div class="col-12">
 
 
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+          <div class="card">
+            <div class="card-header">
+              <form method="get" action="<?php echo current_url(); ?>">
+                <div class="row">
+                  <div class="col-1">
+                    <?php if($this->permission->checkPermission($this->session->userdata('permissao'),'aCorrespondencia')){ ?>
+                      <a href="<?php echo base_url();?>index.php/correspondencias/adicionar" class="btn btn-primary span12 "><i class="fas fa-plus-circle"></i> </a>
+                      <?php } ?>
+                  </div>
+                  <div class="col-6">
+                    <input type="text" name="pesquisa"  id="pesquisa" class="form-control" placeholder="Cod. da Correspondência ou Ref. de Recepção" value="<?php echo $this->input->get('pesquisa'); ?>">
+                  </div>
+                  <div class="col-2">
+                    <input type="date" name="data"  id="data"  placeholder="Data de" class="form-control datepicker" value="<?php echo $this->input->get('data'); ?>">
+                  </div>
+                  <div class="col-2">
+                    <input type="date" name="data2"  id="data2"  placeholder="Data2 de" class="form-control datepicker" value="<?php echo $this->input->get('data2'); ?>">
+                  </div>
+                  <div class="col-1">
+                      <button class="span12 btn"> <i class="fas fa-search"></i></button>
+                  </div>
+                  </div>
+              </form>
               </div>
               <!-- /.card-header -->
+
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                         <th>Correspondência</th>
                         <th>Ref. Recepção</th>
-                        <th>Prioridade</th>
-                        <th>Proveniencia</th>                        
-               
+                        <th>Prioridade</th>                       
+                        <th>Destinatário</th>                        
                         <th>Data Entrada</th>
                         <th>Acções</th> 
                   </tr>
@@ -63,7 +83,6 @@ foreach ($results as $r) {
                 echo '<td>'.$r->numCorrespondencia.'</td>';
                 echo '<td>'.$r->refRec.'</td>';
                 echo '<td>'.$r->prioridades.'</td>';
-                echo '<td>'.$r->tipo_pro.'</td>';
                 echo '<td>'.$r->destinatario.'</td>';
                 echo '<td>'.$r->date.'</td>';               
 
@@ -84,7 +103,7 @@ foreach ($results as $r) {
                     }
 
                     if($this->permission->checkPermission($this->session->userdata('permissao'),'tCorrespondencia')){
-                         echo '<a href="'.base_url().'index.php/correspondencias/tra_par/'.$r->id.'" style="margin-right: 1%" role="button" data-toggle="modal" correspondencias_id="'.$r->id.'" correspondenciaTra="'.$r->numCorrespondencia.'" prioridadeTra="'.$r->prioridades.'" class="btn tip-top" title="Tramitar"><i class="fas fa-share-square icon-white"></i></a>';
+                         echo '<a href="'.base_url().'index.php/correspondencias/tra_par/'.$r->id.'" style="margin-right: 1%" role="button" correspondencias_id="'.$r->id.'" correspondenciaTra="'.$r->numCorrespondencia.'" prioridadeTra="'.$r->prioridades.'" class="btn tip-top" title="Tramitar"><i class="fas fa-share-square"></i></a>';
                     }                 
                     
                 echo  '</td>';
@@ -117,8 +136,6 @@ if ($r->estadoTra=='0'and $r->local_direcoes_id==$direcoes and $r->local_departa
                      if($this->permission->checkPermission($this->session->userdata('permissao'),'iProtocolo')){
                         echo '<a class="btn btn-info tip-top" style="margin-right: 1%" target="_blank" href="'.$r->url.'"  class="btn btn-info tip-top"   title="Baixar"><i class="icon-download icon-white"></i></a>'; 
                     }
-
-
                    
                 echo  '</td>';
                 echo '</tr>';
